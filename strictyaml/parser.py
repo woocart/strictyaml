@@ -194,17 +194,17 @@ class StrictYAMLScanner(RoundTripScanner):
                             "(do not specify types in markup)",
                             token.start_mark,
                         )
-                    if (
-                        isinstance(token, ruamelyaml.tokens.FlowMappingStartToken) or
-                        isinstance(token, ruamelyaml.tokens.FlowSequenceStartToken)
-                    ):
-                        raise exceptions.FlowMappingDisallowed(
-                            "While scanning",
-                            token.start_mark,
-                            "Found ugly disallowed JSONesque flow mapping "
-                            "(surround with ' and ' to make text appear literally)",
-                            token.end_mark,
-                        )
+                    # if (
+                    #     isinstance(token, ruamelyaml.tokens.FlowMappingStartToken) or
+                    #     isinstance(token, ruamelyaml.tokens.FlowSequenceStartToken)
+                    # ):
+                    #     raise exceptions.FlowMappingDisallowed(
+                    #         "While scanning",
+                    #         token.start_mark,
+                    #         "Found ugly disallowed JSONesque flow mapping "
+                    #         "(surround with ' and ' to make text appear literally)",
+                    #         token.end_mark,
+                    #     )
                     if isinstance(token, ruamelyaml.tokens.AnchorToken):
                         raise exceptions.AnchorTokenDisallowed(
                             "While scanning",
